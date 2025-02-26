@@ -1,0 +1,12 @@
+Recherche intelligente : on met un ou plusieurs documents et on peut poser des questions du genre : résume moi le document, fait un lien entre tel et tel document etc
+
+- parsing de fichier selon l'extension : .csv, .pdf et .txt je pense c'est fine DONE
+- poser la question au llm : implique de faire attention au nombre de token + si on fait un lien entre plusieurs fichiers => faut que le llm se souvient de l'autre document
+
+- ajouter plusieurs questions ça peut être cool genre en input : mettre un certain nombre de question et devoir finir pas end ou quelque chose comme ça. DONE
+=> pouvoir mettre des questions dans le désordre : voir pour peut-être utiliser un premier prompt auquel j'envoie la liste des docs avec les questions et il me renvoie dans un format particulier pour que je puisse gérer plus facilement les questions en fonction des docs : genre fait moi un résumé du document articleB alors qu'on a envoyé l'article A avant. 
+
+
+
+les tests seront fait avec des articles de presse, un chapitre d'un livre peut-être : 
+voir aussi si ça marche de faire genre : fait moi un résumé de cet article et parle moi de l'actualité => gérer la température, voir si on peut gérer allucination aussi
