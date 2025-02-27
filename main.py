@@ -1,6 +1,8 @@
+import sys
 from parsing import parse_docs
 
 if __name__ == "__main__":
+    docs = sys.argv[1:]
     questions = []
 
     print("Please make sure that the files are in the documents folder\
@@ -19,5 +21,6 @@ Enter 'done' when finished.")
         print("No question provided.")
         exit(0)
 
-    docs, dict_docs = parse_docs()
-    print(dict_docs)
+    docs, dict_docs = parse_docs(docs)
+    print(docs)
+    # print(dict_docs)

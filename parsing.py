@@ -2,46 +2,56 @@ from PyPDF2 import PdfReader
 from pathlib import Path
 
 
-def parse_docs():
-    """Parse the different documents provided by the user."""
-    path = "documents/"
-    subdirectory_path = Path(path)
-    docs_name = [f.name for f in subdirectory_path.iterdir() if f.is_file()]
+def parse_docs(docs):
+    """Parse the different documents provided by the user and convert them
+    into strings to put them in a dict."""
     parsed_docs = dict()
+    doc_list = []
+    path = ""
 
-    for doc in docs_name:
-        doc = path + doc
+    if (len(docs) == 0):
+        # If no arguments are provided we get the documents from the directory
+        path = "documents/"
+        path_object = Path(path)
+        docs = [f.name for f in path_object.iterdir()
+                if f.is_file()]
+
+    for doc in docs:
+        doc_name = doc.split('.')[0]
 
         if (doc.endswith(".csv")):
             # Parse csv file and turn it into an str and add it to the dict.
             try:
-                text = open(subdirectory_path + doc, "r")
+                text = open(path + doc, "r")
             except Exception as e:
                 print("Error while reading :", e)
                 pass
             content = ' '.join([i for i in text])
-            parsed_docs[doc.split('.')[0]] = content
+            parsed_docs[doc_name] = content
+            doc_list.append(doc_name)
 
         elif (doc.endswith(".txt")):
             # Parse txt file and turn it into an str and add it to the dict.
             try:
-                text = open(doc, "r")
+                text = open(path + doc, "r")
             except Exception as e:
                 print("Error while reading :", e)
                 pass
             content = text.read()
-            parsed_docs[doc.split('.')[0]] = content
+            parsed_docs[doc_name] = content
+            doc_list.append(doc_name)
 
         elif (doc.endswith(".pdf")):
             # Parse pdf file, turn it into an str and add it to the dict.
-            text = extract_from_pdf(subdirectory_path + doc)
+            text = extract_from_pdf(path + doc)
             if (text == "None"):
                 pass
-            parsed_docs[doc.split('.')[0]] = text
+            parsed_docs[doc_name] = text
+            doc_list.append(doc_name)
 
         else:
             print(doc, ": Format not supported")
-    return docs_name, parsed_docs
+    return doc_list, parsed_docs
 
 
 def extract_from_pdf(doc: str):
