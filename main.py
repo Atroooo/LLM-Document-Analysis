@@ -5,8 +5,9 @@ if __name__ == "__main__":
     docs = sys.argv[1:]
     questions = []
 
-    print("Please make sure that the files are in the documents folder\
-(csv, pdf or txt).")
+    print("If you didn't provided any documents in the command line, please\
+make sure that the files are in the documents folder (csv, pdf or txt)\
+.")
     print("Please enter your questions. It could simply be to sum up a file or\
 ask to find a relationship between the documents.\n\
 Enter 'done' when finished.")
@@ -22,5 +23,6 @@ Enter 'done' when finished.")
         exit(0)
 
     docs, dict_docs = parse_docs(docs)
-    print(docs)
-    # print(dict_docs)
+    # print(docs)
+    # for doc in dict_docs:
+    #     print(doc, ":", dict_docs[doc])
