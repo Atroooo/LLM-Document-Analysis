@@ -29,10 +29,6 @@ conversation = [
             "content": "Hello, how are you ?"
         },
         {
-            "role": "assistant",
-            "content": "Hello! How can I assist you today?"
-        },
-        {
             "role": "user",
             "content":
             "Write an essay about the importance of higher education.",
