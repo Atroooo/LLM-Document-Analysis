@@ -44,12 +44,12 @@ Answer is the language of the questions. Every answers must be contained\
 between '[' and ']' like the questions."
     })
     outputs = call_llm(conversation)
-    print(outputs)
+    print_outputs(outputs)
 
 
 def call_llm(conversation):
     model_name = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ"
-    sampling_params = SamplingParams(max_tokens=4096, temperature=0.8)
+    sampling_params = SamplingParams(max_tokens=4096, temperature=0.95)
     llm = LLM(
         model=model_name,
         dtype="float16",
