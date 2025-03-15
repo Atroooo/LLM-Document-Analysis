@@ -38,10 +38,10 @@ def process_docs(docs, docs_dict, questions):
     conversation.append({
         "role": "user",
         "content": f"Answer the questions and only the questions \
-related to the texts I gave you \
-above : {questions_str}. The questions are contained between '[' and ']'. \
-Answer is the language of the questions. Every answers must be contained in\
-[] like the questions."
+related to the texts I gave you above : {questions_str}. \
+The questions are contained between '[' and ']'. \
+Answer is the language of the questions. Every answers must be contained\
+between '[' and ']' like the questions."
     })
     outputs = call_llm(conversation)
     print(outputs)
@@ -49,7 +49,7 @@ Answer is the language of the questions. Every answers must be contained in\
 
 def call_llm(conversation):
     model_name = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ"
-    sampling_params = SamplingParams(max_tokens=8092, temperature=0.1)
+    sampling_params = SamplingParams(max_tokens=4096, temperature=0.8)
     llm = LLM(
         model=model_name,
         dtype="float16",
