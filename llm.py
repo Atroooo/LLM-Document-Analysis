@@ -11,9 +11,9 @@ HfFolder.save_token(os.getenv("HF_TOKEN"))
 
 def print_outputs(outputs):
     for output in outputs:
-        prompt = output.prompt
+        # prompt = output.prompt
         generated_text = output.outputs[0].text
-        print(f"\nPrompt: {prompt!r}\n")
+        # print(f"\nPrompt: {prompt!r}\n")
         print(f"Generated text: {generated_text!r}\n")
         print("-" * 80 + "\n")
 
@@ -37,11 +37,14 @@ def process_docs(docs, docs_dict, questions):
 
     conversation.append({
         "role": "user",
-        "content": f"Answer the questions and only the questions \
-related to the texts I gave you above : {questions_str}. \
-The questions are contained between '[' and ']'. \
-Answer is the language of the questions. Every answers must be contained\
-between '[' and ']' like the questions."
+        "content": f"Answer the questions and ONLY the questions \
+asked by the user. They are related to the texts I gave you above. \
+Format of the test are given as follow : \
+name_of_the_document: text_of_the_document.\
+Questions are contained between '[' and ']'. \
+Answer is the language of the questions.\
+Every answers must be contained between '[' and ']' like the questions. \
+Here is the list of question(s): {questions_str}."
     })
     outputs = call_llm(conversation)
     print_outputs(outputs)
