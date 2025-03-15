@@ -13,9 +13,9 @@ def print_outputs(outputs):
     for output in outputs:
         prompt = output.prompt
         generated_text = output.outputs[0].text
-        print(f"Prompt: {prompt!r}")
-        print(f"Generated text: {generated_text!r}")
-        print("-" * 80)
+        print(f"\nPrompt: {prompt!r}\n")
+        print(f"Generated text: {generated_text!r}\n")
+        print("-" * 80 + "\n")
 
 
 def process_docs(docs, docs_dict, questions):
@@ -54,7 +54,7 @@ def call_llm(conversation):
         model=model_name,
         dtype="float16",
     )
-    outputs = llm.chat(conversation, sampling_params, use_tqdm=False)
+    outputs = llm.chat(conversation, sampling_params, use_tqdm=True)
     del llm
     gc.collect()
     torch.cuda.empty_cache()
