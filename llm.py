@@ -18,7 +18,7 @@ def print_outputs(outputs):
     print("-" * 80)
 
 
-def process_docs():
+# def process_docs():
     
 
 model_name = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ"
