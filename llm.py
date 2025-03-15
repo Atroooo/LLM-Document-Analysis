@@ -54,7 +54,7 @@ def call_llm(conversation):
         model=model_name,
         dtype="float16",
     )
-    outputs = llm.chat(conversation, sampling_params, use_tqdm=True)
+    outputs = llm.chat(conversation, sampling_params, use_tqdm=False)
     del llm
     gc.collect()
     torch.cuda.empty_cache()
