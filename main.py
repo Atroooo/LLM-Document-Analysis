@@ -1,5 +1,6 @@
 import sys
 from parsing import parse_docs
+from llm import process_docs
 
 if __name__ == "__main__":
     docs = sys.argv[1:]
@@ -22,7 +23,5 @@ Enter 'done' when finished.")
         print("No question provided.")
         exit(0)
 
-    docs, dict_docs = parse_docs(docs)
-    # print(docs)
-    # for doc in dict_docs:
-    #     print(doc, ":", dict_docs[doc])
+    docs, docs_dict = parse_docs(docs)
+    process_docs(docs, docs_dict, questions)

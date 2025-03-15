@@ -11,60 +11,50 @@ HfFolder.save_token(os.getenv("HF_TOKEN"))
 
 def print_outputs(outputs):
     for output in outputs:
-        prompt = output.prompt
+        # prompt = output.prompt
         generated_text = output.outputs[0].text
-        print(f"Prompt: {prompt!r}")
+        # print(f"Prompt: {prompt!r}")
         print(f"Generated text: {generated_text!r}")
-    print("-" * 80)
+        print("-" * 80)
 
 
-# def process_docs():
-    
-
-model_name = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ"
-sampling_params = SamplingParams(max_tokens=4096)
-llm = LLM(
-    model=model_name,
-    dtype="float16",
-)
-
-conversation = [
-        {
+def process_docs(docs, docs_dict, questions):
+    conversation = []
+    for doc in docs:
+        doc_name = doc.split('.')[0]
+        conversation.append({
             "role": "user",
-            "content": "Hello, how are you ?"
-        },
-        {
+            "content": f"{doc_name}: {docs_dict[doc_name]}"
+        })
+        conversation.append({
             "role": "assistant",
-            "content": "==="
-        },
-        {
-            "role": "user",
-            "content":
-            "This is a test.",
-        },
-        {
-            "role": "assistant",
-            "content":
-            "No worries!",
-        },
-        {
-            "role": "user",
-            "content":
-            "What did you tell me after my first message ?",
-        },
-    ]
+            "content": "Saving the document..."
+        })
 
-outputs = llm.chat(conversation, sampling_params, use_tqdm=False)
+    questions_str = ""
+    for question in questions:
+        questions_str += "[" + question + "]"
 
-# prompts = [
-#     "Hello this is a test.",
-#     "What did I say on the last message?",
-#     "What is the meaning of life?",
-# ]
+    conversation.append({
+        "role": "user",
+        "content": f"Answer those questions related to the texts I gave you\
+above : {questions_str}. The questions are contained between '[' and ']'.\
+Answer is the language of the questions. Every answers must be contained in\
+[] like the questions."
+    })
+    outputs = call_llm(conversation)
+    print(outputs)
 
-# outputs = llm.generate(prompts, sampling_params, use_tqdm=False)
 
-print_outputs(outputs)
-del llm
-gc.collect()
-torch.cuda.empty_cache()
+def call_llm(conversation):
+    model_name = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ"
+    sampling_params = SamplingParams(max_tokens=8092)
+    llm = LLM(
+        model=model_name,
+        dtype="float16",
+    )
+    outputs = llm.chat(conversation, sampling_params, use_tqdm=False)
+    del llm
+    gc.collect()
+    torch.cuda.empty_cache()
+    return outputs
