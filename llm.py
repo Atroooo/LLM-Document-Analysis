@@ -2,6 +2,8 @@ import os
 from dotenv import load_dotenv
 from huggingface_hub import HfFolder
 from vllm import LLM, SamplingParams
+import gc
+import torch
 
 load_dotenv()
 HfFolder.save_token(os.getenv("HF_TOKEN"))
@@ -29,9 +31,13 @@ conversation = [
             "content": "Hello, how are you ?"
         },
         {
+            "role": "assistant",
+            "content": "Hello! How can I assist you today?"
+        },
+        {
             "role": "user",
             "content":
-            "Write an essay about the importance of higher education.",
+            "This is a test.",
         },
         {
             "role": "assistant",
@@ -41,7 +47,7 @@ conversation = [
         {
             "role": "user",
             "content":
-            "What did I ask you to do on the last message ?",
+            "What did you tell me after my first message ?",
         },
     ]
 
@@ -56,3 +62,6 @@ outputs = llm.chat(conversation, sampling_params, use_tqdm=False)
 # outputs = llm.generate(prompts, sampling_params, use_tqdm=False)
 
 print_outputs(outputs)
+del llm
+gc.collect()
+torch.cuda.empty_cache()
