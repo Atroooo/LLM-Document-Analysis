@@ -11,9 +11,9 @@ HfFolder.save_token(os.getenv("HF_TOKEN"))
 
 def print_outputs(outputs):
     for output in outputs:
-        # prompt = output.prompt
+        prompt = output.prompt
         generated_text = output.outputs[0].text
-        # print(f"Prompt: {prompt!r}")
+        print(f"Prompt: {prompt!r}")
         print(f"Generated text: {generated_text!r}")
         print("-" * 80)
 
@@ -37,8 +37,9 @@ def process_docs(docs, docs_dict, questions):
 
     conversation.append({
         "role": "user",
-        "content": f"Answer those questions related to the texts I gave you\
-above : {questions_str}. The questions are contained between '[' and ']'.\
+        "content": f"Answer the questions and only the questions \
+related to the texts I gave you \
+above : {questions_str}. The questions are contained between '[' and ']'. \
 Answer is the language of the questions. Every answers must be contained in\
 [] like the questions."
     })
@@ -48,7 +49,7 @@ Answer is the language of the questions. Every answers must be contained in\
 
 def call_llm(conversation):
     model_name = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ"
-    sampling_params = SamplingParams(max_tokens=8092)
+    sampling_params = SamplingParams(max_tokens=8092, temperature=0.1)
     llm = LLM(
         model=model_name,
         dtype="float16",
