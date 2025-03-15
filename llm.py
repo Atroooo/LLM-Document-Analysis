@@ -23,40 +23,40 @@ llm = LLM(
     dtype="float16",
 )
 
-# conversation = [
-#         {
-#             "role": "user",
-#             "content": "Hello"
-#         },
-#         {
-#             "role": "assistant",
-#             "content": "Hello! How can I assist you today?"
-#         },
-#         {
-#             "role": "user",
-#             "content":
-#             "Write an essay about the importance of higher education.",
-#         },
-#         {
-#             "role": "assistant",
-#             "content":
-#             "No worries!",
-#         },
-#         {
-#             "role": "user",
-#             "content":
-#             "What did I ask you to do on the last message ?",
-#         },
-#     ]
+conversation = [
+        {
+            "role": "user",
+            "content": "Hello, how are you ?"
+        },
+        {
+            "role": "assistant",
+            "content": "Hello! How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content":
+            "Write an essay about the importance of higher education.",
+        },
+        {
+            "role": "assistant",
+            "content":
+            "No worries!",
+        },
+        {
+            "role": "user",
+            "content":
+            "What did I ask you to do on the last message ?",
+        },
+    ]
 
-# outputs = llm.chat(conversation, sampling_params, use_tqdm=False)
+outputs = llm.chat(conversation, sampling_params, use_tqdm=False)
 
-prompts = [
-    "Hello this is a test.",
-    "What did I say on the last message?",
-    "What is the meaning of life?",
-]
+# prompts = [
+#     "Hello this is a test.",
+#     "What did I say on the last message?",
+#     "What is the meaning of life?",
+# ]
 
+# outputs = llm.generate(prompts, sampling_params, use_tqdm=False)
 
-outputs = llm.generate(prompts, sampling_params, use_tqdm=False)
 print_outputs(outputs)
