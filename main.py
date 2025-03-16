@@ -8,7 +8,7 @@ if __name__ == "__main__":
     logging.basicConfig(
         filename='app.log',  # Specify the file where logs will be written
         filemode='a',        # 'a' to append, 'w' to overwrite
-        level=logging.INFO,  # Set the logging level
+        level=logging.CRITICAL,  # Set the logging level
     )
     docs = sys.argv[1:]
     questions = []
