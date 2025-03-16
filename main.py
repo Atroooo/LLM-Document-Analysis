@@ -1,8 +1,13 @@
 import sys
+import logging
 from parsing import parse_docs
 from llm import process_docs
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    logging.info("Starting the program...")
+    logging.getLogger("vllm").setLevel(logging.INFO)
+
     docs = sys.argv[1:]
     questions = []
 
