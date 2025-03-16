@@ -12,9 +12,9 @@ HfFolder.save_token(os.getenv("HF_TOKEN"))
 def print_outputs(outputs):
     print("-" * 80 + "\n")
     for output in outputs:
-        # prompt = output.prompt
+        prompt = output.prompt
         generated_text = output.outputs[0].text
-        # print(f"\nPrompt: {prompt!r}\n")
+        print(f"\nPrompt: {prompt!r}\n")
         print(f"Generated text: {generated_text!r}\n")
         print("-" * 80 + "\n")
 
@@ -54,7 +54,7 @@ Here is the list of question(s): {questions_str}."
 
 def call_llm(conversation):
     model_name = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ"
-    sampling_params = SamplingParams(max_tokens=4096, temperature=0.95)
+    sampling_params = SamplingParams(max_tokens=4096, temperature=0.90)
     llm = LLM(
         model=model_name,
         dtype="float16",
