@@ -4,10 +4,12 @@ from parsing import parse_docs
 from llm import process_docs
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    logging.info("Starting the program...")
-    logging.getLogger("vllm").setLevel(logging.INFO)
-
+    # logging.disable(logging.CRITICAL)
+    logging.basicConfig(
+        filename='app.log',  # Specify the file where logs will be written
+        filemode='a',        # 'a' to append, 'w' to overwrite
+        level=logging.INFO,  # Set the logging level
+    )
     docs = sys.argv[1:]
     questions = []
 
