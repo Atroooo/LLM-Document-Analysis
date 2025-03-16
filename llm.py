@@ -10,6 +10,7 @@ HfFolder.save_token(os.getenv("HF_TOKEN"))
 
 
 def print_outputs(outputs):
+    print("-" * 80 + "\n")
     for output in outputs:
         # prompt = output.prompt
         generated_text = output.outputs[0].text
@@ -38,7 +39,8 @@ def process_docs(docs, docs_dict, questions):
     conversation.append({
         "role": "user",
         "content": f"Answer the questions and ONLY the questions \
-asked by the user. They are related to the texts I gave you above. \
+asked by the user. Do not add anything else. \
+They are related to the texts I gave you above. \
 Format of the test are given as follow : \
 name_of_the_document: text_of_the_document.\
 Questions are contained between '[' and ']'. \
