@@ -4,11 +4,6 @@ from parsing import parse_docs
 from llm import process_docs
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        filename='app.log',  # Specify the file where logs will be written
-        filemode='a',        # 'a' to append, 'w' to overwrite
-        level=logging.INFO,  # Set the logging level
-    )
     logging.disable(logging.CRITICAL)
     docs = sys.argv[1:]
     questions = []
@@ -30,6 +25,7 @@ Enter 'done' when finished.")
         print("No question provided.")
         exit(0)
 
+    print("Processing...")
     docs, docs_dict = parse_docs(docs)
     process_docs(docs, docs_dict, questions)
     exit(1)
