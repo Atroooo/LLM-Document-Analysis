@@ -4,9 +4,22 @@ from parsing import parse_docs
 from llm import process_docs
 
 if __name__ == "__main__":
-    logging.disable(logging.CRITICAL)
     docs = sys.argv[1:]
     questions = []
+
+    if (len(docs) > 0 and docs[0] == "help"):
+        print("Usage: python main.py 1[optional] document_list[optional]")
+        print("1: Enable logging")
+        print("document_list: List of documents to process [optional] \
+(only csv, pdf and txt files)")
+        exit(0)
+
+    if (len(docs) > 0 and docs[0] == "1"):
+        print("Logging enabled.")
+        docs = sys.argv[2:]
+    else:
+        print("Logging disabled.")
+        logging.disable(logging.CRITICAL)
 
     print("If you didn't provided any documents in the command line, please\
 make sure that the files are in the documents folder (csv, pdf or txt)\
