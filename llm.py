@@ -12,9 +12,9 @@ HfFolder.save_token(os.getenv("HF_TOKEN"))
 def print_outputs(outputs):
     print("-" * 80 + "\n")
     for output in outputs:
-        prompt = output.prompt
+        # prompt = output.prompt
         generated_text = output.outputs[0].text
-        print(f"\nPrompt: {prompt!r}\n")
+        # print(f"\nPrompt: {prompt!r}\n")
         print(f"Generated text: {generated_text!r}\n")
         print("-" * 80 + "\n")
 
@@ -25,7 +25,7 @@ def process_docs(docs, docs_dict, questions):
         doc_name = doc.split('.')[0]
         conversation.append({
             "role": "user",
-            "content": f"{doc_name}: {docs_dict[doc_name]}"
+            "content": f"{doc}: {docs_dict[doc_name]}"
         })
         conversation.append({
             "role": "assistant",
@@ -58,8 +58,9 @@ def call_llm(conversation):
     llm = LLM(
         model=model_name,
         dtype="float16",
+        disable_log_stats=True,
     )
-    outputs = llm.chat(conversation, sampling_params, use_tqdm=False)
+    outputs = llm.chat(conversation, sampling_params)
     del llm
     gc.collect()
     torch.cuda.empty_cache()

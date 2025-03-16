@@ -25,3 +25,4 @@ Enter 'done' when finished.")
 
     docs, docs_dict = parse_docs(docs)
     process_docs(docs, docs_dict, questions)
+    exit(1)
