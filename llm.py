@@ -85,6 +85,7 @@ Format of the text:
 
 Output format:
 - ['question you are answering': 'the question's answer'] Replace the 'question you are answering' with the question that you are answering and 'the question's answer' with the answer to the question.
+Both the question and the answer should be contained between '[' and ']' together.
 - One output per question.
 
 Here is the list of question(s): {questions_str}
