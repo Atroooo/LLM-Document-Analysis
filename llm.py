@@ -74,11 +74,10 @@ docs_dict[doc_name] = doc_text
     conversation.append({
         "role": "user",
         "content": f"""
-Answer the questions provided by the user in the order they are given.
-Only answer the questions that are directly asked and related to the \
-provided texts.
-Do not answer the questions from the documents. Just the questions provided \
-in this prompt.
+Answer only the questions provided by the user in the order they are given.
+Do not answer any questions that are part of the document text itself.
+Only respond to questions that are directly asked and related to \
+the provided texts.
 Do not add any additional information or questions.
 
 Format of the text:
