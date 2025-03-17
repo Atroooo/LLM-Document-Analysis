@@ -77,6 +77,8 @@ docs_dict[doc_name] = doc_text
 Answer the questions provided by the user in the order they are given.
 Only answer the questions that are directly asked and related to the \
 provided texts.
+Do not answer the questions from the documents. Just the questions provided \
+in this prompt.
 Do not add any additional information or questions.
 
 Format of the text:
