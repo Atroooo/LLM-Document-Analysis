@@ -84,7 +84,7 @@ Format of the text:
 - name_of_the_document: text_in_the_document
 
 Output format:
-- [question: the question's answer] Replace the 'question' with the question you are answering and 'the question's answer' with the answer to the question.
+- [question you are answering: the question's answer] Replace the 'question you are answering' with the question that you are answering and 'the question's answer' with the answer to the question.
 - One output per question.
 
 Here is the list of question(s): {questions_str}
