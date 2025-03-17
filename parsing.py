@@ -44,7 +44,7 @@ def parse_docs(docs):
 
 
 def extract_from_pdf(doc: str):
-    """Extract the text from a pdf file
+    """Extract the text from a pdf file.
 
     Args:
         doc (str): PDF file name.

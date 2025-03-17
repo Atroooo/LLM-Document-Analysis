@@ -29,8 +29,8 @@ def print_outputs(outputs):
     # Remove the last unwanted char
     str_tab = [re.sub(r"^['\"]|['\"]$", "", s) for s in str_tab]
 
+    print("\n" + "-" * 80 + "\n")
     for string in str_tab:
-        print("\n" + "-" * 80 + "\n")
         print(string)
 
     # for output in outputs:
