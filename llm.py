@@ -58,12 +58,14 @@ docs_dict[doc_name] = doc_text
         "content": f"Answer the questions and ONLY the questions \
 asked by the user. Do not add anything else. Just answer once per question. \
 Answer the questions in the given order.\
-Each questions are contained between '[' and ']'. \
+Each questions are contained between '[' and ']'. Do NOT add any questions \
+that are not asked. \
 The questions are related to the texts provided above. \
-Do not answer if the question is not related to the text. \
+Do not answer if the question is not related to one of the text. \
 Format of the text is given as follow : \
 name_of_the_document: text_in_the_document.\
-Output must be return as follow: [question: the question's answer]. \
+Output must be return as follow and only like this: \
+[question you are answering: the question's answer]. \
 Here is the list of question(s): {questions_str}."
     })
     outputs = call_llm(conversation)
