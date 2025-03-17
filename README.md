@@ -58,3 +58,5 @@ python main.py 1 # Run the model with the documents in the documents/ folder and
 python main.py documents ... # Run the model with the documents provided
 python main.py 1 documents ... # Run the model with the documents provided and turn on the logging
 ```
+
+### Improvements
