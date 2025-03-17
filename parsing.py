@@ -22,7 +22,7 @@ def parse_docs(docs):
 
         if (doc.endswith(".csv")):
             # Parse csv file and turn it into an str and add it to the dict.
-            df = pd.Dataframe()
+            df = pd.DataFrame()
             try:
                 df = pd.read_csv(path + doc)
             except Exception as e:
