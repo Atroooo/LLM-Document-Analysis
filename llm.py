@@ -57,7 +57,7 @@ docs_dict[doc_name] = doc_text
         doc_name = doc.split('.')[0]
         conversation.append({
             "role": "user",
-            "content": f"TEXT PROMPT :{doc}: {docs_dict[doc_name]}"
+            "content": f"TEXT PROMPT :{doc_name}: {docs_dict[doc]}"
         })
         conversation.append({
             "role": "assistant",
