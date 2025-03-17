@@ -14,6 +14,7 @@ def print_outputs(outputs):
     Args:
         outputs (list): List of outputs from the model.
     """
+    # Need improvement to print the outputs
     print("-" * 80 + "\n")
     for output in outputs:
         # prompt = output.prompt

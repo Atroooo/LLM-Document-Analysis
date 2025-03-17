@@ -27,7 +27,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Rename the env_example as .env and fill the hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx with your [huggingface access token](https://huggingface.co/docs/hub/security-tokens).
+Rename the env_example as .env and fill the hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx with your [huggingface access token](https://huggingface.co/docs/hub/security-tokens). => to elaborate
 
 ### Usage
 To use the project, you can run the following command: 
@@ -59,4 +59,19 @@ python main.py documents ... # Run the model with the documents provided
 python main.py 1 documents ... # Run the model with the documents provided and turn on the logging
 ```
 
-### Improvements
+=> need to add a gif when output is final
+
+### Possible Improvements
+
+- Using a more powerful instance would allow to use the original Mistral-7B-Instruct-v0.2 model for exemple or even a more powerful model, which would improve the performance, but would augment the costs.
+- Using vLLM server mode would be faster to use but is longer setup (using docker, setting up the server, etc). Using endpoints with EC2 could also allow us to use the program faster and from everywhere.
+- Instead of using vLLM we could use Amazon bedrock, that could decrease the costs, easier to setup and could be increasing the performance depending of which model we use, but we would have less liberty than vLLM and we have to use Amazon.
+
+
+### Links to the articles used
+https://www.thecanadianencyclopedia.ca/fr/article/titanic
+https://www.kaggle.com/competitions/titanic/data?select=train.csv
+https://www.bbc.com/sport/olympics/articles/ce8yjx61wd6o
+https://www.bbc.com/news/articles/c89yqqd3n53o
+https://www.bbc.com/news/articles/c89yqqd3n53o
+https://www.bbc.com/future/article/20250317-how-often-should-you-clean-your-water-bottle-and-what-is-the-best-way
