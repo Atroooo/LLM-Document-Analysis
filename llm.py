@@ -54,10 +54,9 @@ docs_dict[doc_name] = doc_text
     conversation = []
     # Add the documents to the conversation
     for doc in docs:
-        doc_name = doc.split('.')[0]
         conversation.append({
             "role": "user",
-            "content": f"TEXT PROMPT :{doc}: {docs_dict[doc_name]}"
+            "content": f"TEXT PROMPT :{doc}: {docs_dict[doc]}"
         })
         conversation.append({
             "role": "assistant",

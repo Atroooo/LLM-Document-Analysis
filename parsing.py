@@ -17,7 +17,6 @@ def parse_docs(docs):
                 if f.is_file()]
 
     for doc in docs:
-        doc_name = doc.split('.')[0]
 
         if (doc.endswith(".csv")):
             # Parse csv file and turn it into an str and add it to the dict.
@@ -27,8 +26,8 @@ def parse_docs(docs):
                 print("Error while reading :", e)
                 pass
             content = ' '.join([i for i in text])
-            parsed_docs[doc_name] = content
-            doc_list.append(doc_name)
+            parsed_docs[doc] = content
+            doc_list.append(doc)
 
         elif (doc.endswith(".txt")):
             # Parse txt file and turn it into an str and add it to the dict.
@@ -38,16 +37,16 @@ def parse_docs(docs):
                 print("Error while reading :", e)
                 pass
             content = text.read()
-            parsed_docs[doc_name] = content
-            doc_list.append(doc_name)
+            parsed_docs[doc] = content
+            doc_list.append(doc)
 
         elif (doc.endswith(".pdf")):
             # Parse pdf file, turn it into an str and add it to the dict.
             text = extract_from_pdf(path + doc)
             if (text == "None"):
                 pass
-            parsed_docs[doc_name] = text
-            doc_list.append(doc_name)
+            parsed_docs[doc] = text
+            doc_list.append(doc)
 
         else:
             print(doc, ": Format not supported")
