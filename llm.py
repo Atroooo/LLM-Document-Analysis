@@ -62,7 +62,7 @@ The questions are related to the texts provided above. \
 Do not answer if the question is not related to the text. \
 Format of the text is given as follow : \
 name_of_the_document: text_in_the_document.\
-Output must be return as follow: [question: answer]. \
+Output must be return as follow: [question: your answer]. \
 Here is the list of question(s): {questions_str}."
     })
     outputs = call_llm(conversation)
