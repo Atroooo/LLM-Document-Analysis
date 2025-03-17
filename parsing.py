@@ -1,6 +1,5 @@
 from PyPDF2 import PdfReader
 from pathlib import Path
-import pandas as pd
 
 
 def parse_docs(docs):
@@ -18,18 +17,18 @@ def parse_docs(docs):
                 if f.is_file()]
 
     for doc in docs:
+        doc_name = doc.split('.')[0]
 
         if (doc.endswith(".csv")):
             # Parse csv file and turn it into an str and add it to the dict.
-            df = pd.DataFrame()
             try:
-                df = pd.read_csv(path + doc)
+                text = open(path + doc, "r")
             except Exception as e:
                 print("Error while reading :", e)
                 pass
-            json_str = df.to_json(orient='records')
-            parsed_docs[doc] = json_str
-            doc_list.append(doc)
+            content = ' '.join([i for i in text])
+            parsed_docs[doc_name] = content
+            doc_list.append(doc_name)
 
         elif (doc.endswith(".txt")):
             # Parse txt file and turn it into an str and add it to the dict.
@@ -39,16 +38,16 @@ def parse_docs(docs):
                 print("Error while reading :", e)
                 pass
             content = text.read()
-            parsed_docs[doc] = content
-            doc_list.append(doc)
+            parsed_docs[doc_name] = content
+            doc_list.append(doc_name)
 
         elif (doc.endswith(".pdf")):
             # Parse pdf file, turn it into an str and add it to the dict.
             text = extract_from_pdf(path + doc)
             if (text == "None"):
                 pass
-            parsed_docs[doc] = text
-            doc_list.append(doc)
+            parsed_docs[doc_name] = text
+            doc_list.append(doc_name)
 
         else:
             print(doc, ": Format not supported")
