@@ -11,4 +11,4 @@ The project as been tested on an instance EC2 of AWS.
 The instance used was a [g4dn.2xlarge](https://aws.amazon.com/ec2/instance-types/g4/). 
 It has 8 vCPUs, 32 GiB of memory, 1 x 150 GB of storage and a GPU NVIDIA T4 with 15 VRAM.
 
-The AMI used was the Deep Learning OSS Nvidia Driver AMI GPU Pytorch 2.6 (Amazon Linux 2023)[https://aws.amazon.com/releasenotes/aws-deep-learning-ami-gpu-pytorch-2-6-amazon-linux-2023/].
+The AMI used was the [Deep Learning OSS Nvidia Driver AMI GPU Pytorch 2.6 Amazon Linux 2023](https://aws.amazon.com/releasenotes/aws-deep-learning-ami-gpu-pytorch-2-6-amazon-linux-2023/).
