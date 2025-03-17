@@ -1,5 +1,6 @@
 from PyPDF2 import PdfReader
 from pathlib import Path
+import pandas as pd
 
 
 def parse_docs(docs):
@@ -21,12 +22,12 @@ def parse_docs(docs):
         if (doc.endswith(".csv")):
             # Parse csv file and turn it into an str and add it to the dict.
             try:
-                text = open(path + doc, "r")
+                df = pd.read_csv(doc)
             except Exception as e:
                 print("Error while reading :", e)
                 pass
-            content = ' '.join([i for i in text])
-            parsed_docs[doc] = content
+            json_str = df.to_json(orient='records')
+            parsed_docs[doc] = json_str
             doc_list.append(doc)
 
         elif (doc.endswith(".txt")):
