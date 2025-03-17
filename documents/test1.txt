@@ -1,6 +1,0 @@
-This is a test file for the llm project.
-It is a simple text file with no special formatting.
-
-The extension is good.
-
-There is no real content. It is just a test file.
