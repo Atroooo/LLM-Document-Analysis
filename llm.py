@@ -73,19 +73,21 @@ docs_dict[doc_name] = doc_text
     # Add the questions to the conversation and give instructions to the model
     conversation.append({
         "role": "user",
-        "content": f"Answer the questions and ONLY the questions \
-asked by the user. Do not add anything else. Just answer once per question. \
-Answer the questions in the given order.\
-Each questions are contained between '[' and ']'. Do NOT add any questions \
-that are not DIRECTLY asked. Just the questions asked by the user.\
-The questions are related to the texts provided above. \
-Do not answer if the question is not related to one of the text. \
-Format of the text is given as follow : \
-name_of_the_document: text_in_the_document.\
-Output must be return as follow and only like this: \
-[question you are answering: the question's answer]. \
-Only ONE output per question. \
-Here is the list of question(s): {questions_str}."
+        "content": f"""
+Answer the questions provided by the user in the order they are given.
+Only answer the questions that are directly asked and related to the \
+provided texts.
+Do not add any additional information or questions.
+
+Format of the text:
+- name_of_the_document: text_in_the_document
+
+Output format:
+- [question you are answering: the question's answer]
+- One output per question.
+
+Here is the list of question(s): {questions_str}
+"""
     })
     outputs = call_llm(conversation)
     print_outputs(outputs)
