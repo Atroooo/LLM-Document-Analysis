@@ -71,8 +71,6 @@ python main.py 1 documents ... # Run the model with the documents provided and t
 ```
 
 ### Examples
-Results may vary from tests to tests.
-
 ```bash
 python main.py 1 Are_you_cleaning_your_water_bottle_enough.txt
 ```
