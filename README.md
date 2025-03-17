@@ -92,7 +92,7 @@ We ask to "Summarize From Chatbots to intelligents.... article" and to "Summariz
 
 ### Possible Improvements
 
-- Using a more powerful instance would allow to use the original Mistral-7B-Instruct-v0.2 model for exemple or even a more powerful model, which would improve the performance, especially handling multiple article at the same time, but could augment the costs.
+- Using a more powerful instance would allow to use the original Mistral-7B-Instruct-v0.2 model for exemple or even a more powerful model, which would improve the performance, especially handling multiple articles at the same time, but could augment the costs.
 - Using vLLM server mode would be faster to use but is longer setup (using docker, setting up the server, etc). Using endpoints with EC2 could also allow us to use the program faster and from everywhere.
 - Instead of using vLLM we could use Amazon bedrock, that could decrease the costs, easier to setup and could be increasing the performance depending of which model we use, but we would have less liberty than vLLM and we have to use Amazon.
 - Add a graphic interface to make the program more user-friendly.
