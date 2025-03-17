@@ -1,10 +1,11 @@
 This project aims to use a LLM to answer questions related to documents provided by the user. This project is made in Python with vLLM, huggingface and pandas.
 
 ### LLM
-The LLM used is Mistral-7B-Instruct-v0.2-GPTQ, which is a model trained on the Instruct dataset. 
+The LLM used is Mistral-7B-Instruct-v0.2-GPTQ. 
 The model is available on [huggingface](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GPTQ). 
 
 This is a custom version of the Mistral-7B-Instruct-v0.2 that is lighter than the original one, allowing it to be used in less powerful machines.
+I'm currently using the main version. Note by the Model Creator: 4-bit, with Act Order and group size 128g. Uses even less VRAM than 64g, but with slightly lower accuracy.
 
 ### Hardware
 The project as been tested on an instance EC2 of AWS. 
@@ -70,11 +71,30 @@ python main.py 1 documents ... # Run the model with the documents provided and t
 ```
 
 ### Examples
-=> need to add a gif when output is final
+Results may vary from tests to tests.
+
+```bash
+python main.py 1 Are_you_cleaning_your_water_bottle_enough.txt
+```
+We ask the llm to summarize the article. We also precise 1 to show the logs.
+![g1](https://github.com/user-attachments/assets/67b71a4e-db35-4996-a86d-481005d47776)
+
+```bash
+python main.py
+```
+We ask the llm "Is there a link between those 2 articles : The_difficult_choices_facing_Ukraine and Peace_talks_are_in_parallel_universe ?", 2 articles already provided in the document folder.
+![g2](https://github.com/user-attachments/assets/ff2e6963-d2df-43b3-9a1f-eef2a61860bf)
+
+```bash
+python main.py
+```
+We ask to "Summarize From Chatbots to intelligents.... article" and to "Summarize Boxing set to win reprieve... article"
+![g3](https://github.com/user-attachments/assets/3d16f607-d791-4d67-b76d-6c5524dd0ff5)
+
 
 ### Possible Improvements
 
-- Using a more powerful instance would allow to use the original Mistral-7B-Instruct-v0.2 model for exemple or even a more powerful model, which would improve the performance, but would augment the costs.
+- Using a more powerful instance would allow to use the original Mistral-7B-Instruct-v0.2 model for exemple or even a more powerful model, which would improve the performance, but could augment the costs.
 - Using vLLM server mode would be faster to use but is longer setup (using docker, setting up the server, etc). Using endpoints with EC2 could also allow us to use the program faster and from everywhere.
 - Instead of using vLLM we could use Amazon bedrock, that could decrease the costs, easier to setup and could be increasing the performance depending of which model we use, but we would have less liberty than vLLM and we have to use Amazon.
 - Add a graphic interface to make the program more user-friendly.
