@@ -34,9 +34,9 @@ def print_outputs(outputs):
     #     print(string)
 
     for output in outputs:
-        # prompt = output.prompt
+        prompt = output.prompt
         generated_text = output.outputs[0].text
-        # print(f"\nPromp: {prompt!r}\n")
+        print(f"\nPromp: {prompt!r}\n")
         print(f"Generated text: {generated_text!r}\n")
         print("-" * 80 + "\n")
 
@@ -56,7 +56,7 @@ docs_dict[doc_name] = doc_text
     for doc in docs:
         conversation.append({
             "role": "user",
-            "content": f"TEXT PROMPT :{doc}: {docs_dict[doc]}"
+            "content": f"TEXT PROMPT :{doc.split('.')[0]}: {docs_dict[doc]}"
         })
         conversation.append({
             "role": "assistant",
