@@ -39,16 +39,15 @@ def process_docs(docs, docs_dict, questions):
     conversation.append({
         "role": "user",
         "content": f"Answer the questions and ONLY the questions \
-asked by the user. Do not add anything else. \
-They are related to the texts I gave you above. \
+asked by the user. Do not add anything else. Just answer once per question. \
+They are related to the texts provided above. \
 Format of the test are given as follow : \
 name_of_the_document: text_of_the_document.\
 Questions are contained between '[' and ']'. \
-Answer is the language of the questions.\
-Every answers must be contained between '[' and ']' like the questions. \
+Output must be return as follow: [question: answer]. \
 Here is the list of question(s): {questions_str}."
     })
-    outputs = call_llm(conversation)
+    outputs = call_llm(conversation)  # Every answers must be contained between '[' and ']' like the questions. \
     print_outputs(outputs)
 
 
