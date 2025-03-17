@@ -1,5 +1,6 @@
 import sys
 import logging
+import torch
 from parsing import parse_docs
 from llm import process_docs
 
@@ -41,4 +42,5 @@ Enter 'done' when finished.")
     print("Processing...")
     docs, docs_dict = parse_docs(docs)
     process_docs(docs, docs_dict, questions)
+    torch.distributed.destroy_process_group()
     exit(1)
