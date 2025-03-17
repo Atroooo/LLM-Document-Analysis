@@ -77,7 +77,7 @@ docs_dict[doc_name] = doc_text
 asked by the user. Do not add anything else. Just answer once per question. \
 Answer the questions in the given order.\
 Each questions are contained between '[' and ']'. Do NOT add any questions \
-that are not asked. \
+that are not DIRECTLY asked. Just the questions asked by the user.\
 The questions are related to the texts provided above. \
 Do not answer if the question is not related to one of the text. \
 Format of the text is given as follow : \
