@@ -62,7 +62,7 @@ The questions are related to the texts provided above. \
 Do not answer if the question is not related to the text. \
 Format of the text is given as follow : \
 name_of_the_document: text_in_the_document.\
-Output must be return as follow: [question: your answer]. \
+Output must be return as follow: [question: the question's answer]. \
 Here is the list of question(s): {questions_str}."
     })
     outputs = call_llm(conversation)
@@ -90,5 +90,4 @@ it is the Mistral-7B-Instruct-v0.2-GPTQ model.
     # Call the model with the chat template
     outputs = llm.chat(conversation, sampling_params)
     del llm
-    torch.cuda.empty_cache()
     return outputs

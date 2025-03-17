@@ -59,5 +59,7 @@ Enter 'done' when finished.")
 
 if __name__ == "__main__":
     main()
+    # Clean up
+    torch.cuda.empty_cache()
     torch.distributed.destroy_process_group()
     exit(1)
