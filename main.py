@@ -21,7 +21,7 @@ def main():
         print("Usage: python main.py 1[optional] document_list[optional]")
         print("1: Enable logging")
         print("document_list: List of documents to process [optional] \
-(only csv, pdf and txt files)")
+(only pdf and txt files)")
         exit(0)
 
     # Enable logging
@@ -33,7 +33,7 @@ def main():
         logging.disable(logging.CRITICAL)
 
     print("If you didn't provided any documents in the command line, please\
- make sure that the files are in the documents folder (csv, pdf or txt)\
+ make sure that the files are in the documents folder (pdf or txt)\
 .")
     print("Please enter your questions. It could simply be to sum up a file or\
  ask to find a relationship between the documents.\n\
