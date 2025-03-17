@@ -1,5 +1,4 @@
 import os
-import torch
 import re
 from dotenv import load_dotenv
 from huggingface_hub import HfFolder
@@ -15,31 +14,32 @@ def print_outputs(outputs):
     Args:
         outputs (list): List of outputs from the model.
     """
-    # generated_text = outputs[0].outputs[0].text
+    generated_text = outputs[0].outputs[0].text
 
     # extract each question and answer from the generated text
-    # str_tab = []
-    # temp_str = ""
-    # for c in generated_text:
-    #     if c != '[' and c != ']':
-    #         temp_str += c
-    #     if c == ']':
-    #         str_tab.append(temp_str)
-    #         temp_str = ""
+    str_tab = []
+    temp_str = ""
+    for c in generated_text:
+        if c != '[' and c != ']':
+            temp_str += c
+        if c == ']':
+            str_tab.append(temp_str)
+            temp_str = ""
 
     # Remove the last unwanted char
-    # str_tab = [re.sub(r"^['\"]|['\"]$", "", s) for s in str_tab]
+    str_tab = [re.sub(r"^['\"]|['\"]$", "", s) for s in str_tab]
 
     # Print it nicely
-    # for string in str_tab:
-    #     print("-" * 80 + "\n")
-    #     print(string)
-    for output in outputs:
-        # prompt = output.prompt
-        generated_text = output.outputs[0].text
-        # print(f"\nPromp: {prompt!r}\n")
-        print(f"Generated text: {generated_text!r}\n")
+    for string in str_tab:
         print("-" * 80 + "\n")
+        print(string)
+
+    # for output in outputs:
+    #     # prompt = output.prompt
+    #     generated_text = output.outputs[0].text
+    #     # print(f"\nPromp: {prompt!r}\n")
+    #     print(f"Generated text: {generated_text!r}\n")
+    #     print("-" * 80 + "\n")
 
 
 def process_docs(docs, docs_dict, questions):
@@ -107,7 +107,7 @@ it is the Mistral-7B-Instruct-v0.2-GPTQ model.
     model_name = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ"
     # Set the sampling parameters, here we set the max tokens to 4096
     # and the temperature to 0.2 to make the model less creative
-    sampling_params = SamplingParams(max_tokens=4096, temperature=0.25)
+    sampling_params = SamplingParams(max_tokens=4096, temperature=0.1)
     llm = LLM(
         model=model_name,
         dtype="float16",  # convert the model to float16
