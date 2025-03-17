@@ -27,7 +27,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Rename the env_example as .env and fill the hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx with your [huggingface access token](https://huggingface.co/docs/hub/security-tokens)
+Rename the env_example as .env and fill the hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx with your [huggingface access token](https://huggingface.co/docs/hub/security-tokens).
 
 ### Usage
 To use the project, you can run the following command: 
