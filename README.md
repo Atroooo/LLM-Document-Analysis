@@ -27,7 +27,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-To use the project, you'll need a [HuggingFace account](https://huggingface.co/join). When the account is created, you'll need to create a [huggingface access token](https://huggingface.co/docs/hub/security-tokens) with the permission READ. Keep your token for the env file.
+To use the project, you'll need a [HuggingFace account](https://huggingface.co/join). When the account is created, you'll need to create a [huggingface access token](https://huggingface.co/docs/hub/security-tokens) with the permission READ. 
+Keep your token for the env file.
+
 Then, subcribe to the model [Mistral-7B-Instruct-v0.2-GPTQ](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GPTQ).
 
 Fill "hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" with your access token and rename the env_example as .env.
@@ -40,6 +42,8 @@ To use the project, you can run the following command:
 ```bash
 python main.py help
 ```
+
+All the documents are provided in documents, or in this directory, but feel free to add any that you want.
 
 There is 2 possibilities for providing the documents to the model:
 - You can put all the documents in the documents/ folder and run the following command:
