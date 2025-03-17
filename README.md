@@ -43,6 +43,8 @@ To use the project, you can run the following command:
 python main.py help
 ```
 
+All the documents are provided in documents, or in this directory, but feel free to add any that you want.
+
 There is 2 possibilities for providing the documents to the model:
 - You can put all the documents in the documents/ folder and run the following command:
 ```bash
