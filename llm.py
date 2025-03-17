@@ -29,9 +29,8 @@ def print_outputs(outputs):
     # Remove the last unwanted char
     str_tab = [re.sub(r"^['\"]|['\"]$", "", s) for s in str_tab]
 
-    # Print it nicely
     for string in str_tab:
-        print("-" * 80 + "\n")
+        print("\n" + "-" * 80 + "\n")
         print(string)
 
     # for output in outputs:
@@ -107,7 +106,7 @@ it is the Mistral-7B-Instruct-v0.2-GPTQ model.
     """
     model_name = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ"
     # Set the sampling parameters, here we set the max tokens to 4096
-    # and the temperature to 0.2 to make the model less creative
+    # and the temperature to 0.1 to make the model less creative
     sampling_params = SamplingParams(max_tokens=4096, temperature=0.1)
     llm = LLM(
         model=model_name,
