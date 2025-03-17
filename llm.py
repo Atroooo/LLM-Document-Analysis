@@ -106,8 +106,8 @@ it is the Mistral-7B-Instruct-v0.2-GPTQ model.
     """
     model_name = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ"
     # Set the sampling parameters, here we set the max tokens to 4096
-    # and the temperature to 0.95 to make the model less creative
-    sampling_params = SamplingParams(max_tokens=4096, temperature=0.95)
+    # and the temperature to 0.2 to make the model less creative
+    sampling_params = SamplingParams(max_tokens=4096, temperature=0.25)
     llm = LLM(
         model=model_name,
         dtype="float16",  # convert the model to float16
