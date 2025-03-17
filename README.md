@@ -70,8 +70,13 @@ python main.py 1 documents ... # Run the model with the documents provided and t
 
 ### Links to the articles used
 https://www.thecanadianencyclopedia.ca/fr/article/titanic
+
 https://www.kaggle.com/competitions/titanic/data?select=train.csv
+
 https://www.bbc.com/sport/olympics/articles/ce8yjx61wd6o
+
 https://www.bbc.com/news/articles/c89yqqd3n53o
+
 https://www.bbc.com/news/articles/c89yqqd3n53o
+
 https://www.bbc.com/future/article/20250317-how-often-should-you-clean-your-water-bottle-and-what-is-the-best-way
