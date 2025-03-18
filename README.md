@@ -1,4 +1,4 @@
-This project aims to use a LLM to answer questions related to documents provided by the user. This project is made in Python with vLLM, huggingface and pandas.
+This project aims to use a LLM to answer questions related to documents provided by the user. This project is made in Python with vLLM and huggingface.
 
 ### LLM
 The LLM used is Mistral-7B-Instruct-v0.2-GPTQ. 
